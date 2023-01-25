@@ -1,0 +1,16 @@
+[
+    {
+        "courseId": 1,
+        "courseName": "Informaition technologies",
+        "subject": "NodeJs",
+        "date": "25_01_2023",
+        "type": "online",
+        "link": "*",
+        "author": {
+            "name": "Abbos Gulomov",
+            "phone": 99893111111
+        },
+        "img": "..",
+        "accepted": true
+    }
+]
