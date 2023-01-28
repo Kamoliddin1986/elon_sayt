@@ -20,8 +20,9 @@ const write_file = (file_name, data) => {
 
 function get_token(logData){
     let user = read_file('admin.json')
-    if(user.userName == logData.userName && user.password == logData.password){
-        let token = jwt.sign({name: `${user.userName}`},process.env.SECRET_KEY, {
+
+    if(user[0].userName == logData.userName && user[0].password == logData.password){
+        let token = jwt.sign({name: `${user[0].userName}`},process.env.SECRET_KEY, {
             expiresIn: "2h",
         })
         return {token}

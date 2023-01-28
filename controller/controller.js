@@ -1,5 +1,6 @@
 let {read_file, write_file, get_token} = require('../api/api')
 let uuid = require("uuid.v4")
+let jwt = require('jsonwebtoken')
 
 const Controller = {
     GET_COURSES_FOR_USERS: (_,res) => {
@@ -8,8 +9,8 @@ const Controller = {
         res.send(accepted_courses)
     },
     POST: (req,res) => {
-        token = get_token(req.body).token
-        console.log(token);
+       let  token = get_token(req.body).token
+
         if(token){
             res.send(token)
         }else{
@@ -37,6 +38,18 @@ const Controller = {
         write_file('courses.json', courses)
         file.mv(`./img/${imgName}`)
 
+    },
+
+    GET_COURSES_FOR_ADMIN: (req,res) => {
+        let admin = read_file('admin.json')
+        console.log(jwt.verify(req.headers.authorization,process.env.SECRET_KEY));
+
+        if(jwt.verify(req.headers.authorization,process.env.SECRET_KEY).name == admin[0].userName){
+            let allCourses = read_file('courses.json')
+            return res.send(allCourses)
+        }else{
+            return res.send('token is not actual!!!')
+        }
     }
 }
 
