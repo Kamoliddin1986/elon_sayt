@@ -1,5 +1,5 @@
 let {read_file, write_file, get_token} = require('../api/api')
-
+let uuid = require("uuid.v4")
 
 const Controller = {
     GET: (_,res) => {
@@ -32,10 +32,7 @@ const Controller = {
         if(!img_type.includes(mimetype)){
             return res.send("Img type must be : img, webp, jfif, png.")
         }
-        nwCourse.img_name = imgName
-        nwCourse.accapted = false
-
-        courses.push(nwCourse)
+        courses.push({id:uuid(), ...nwCourse,img_name: imgName,accapted: false })
         write_file('courses.json', courses)
         file.mv(`./img/${imgName}`)
 
