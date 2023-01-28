@@ -11,7 +11,7 @@
             "phone": 998931725501
         },
         "img_name": "14850020nodeJs.webp",
-        "accapted": false
+        "accepted": false
     },
     {
         "id": "75a722a7-1059-4897-b52c-ce87cbdc0148",
@@ -25,6 +25,6 @@
             "phone": 998931723301
         },
         "img_name": "14956092flutter.png",
-        "accapted": true
+        "accepted": true
     }
 ]

@@ -5,7 +5,7 @@ let jwt = require('jsonwebtoken')
 const Controller = {
     GET_COURSES_FOR_USERS: (_,res) => {
         let courses = read_file('courses.json')
-        let accepted_courses = courses.filter(courses => courses.accapted == true)
+        let accepted_courses = courses.filter(courses => courses.accepted == true)
         res.send(accepted_courses)
     },
     POST: (req,res) => {
@@ -34,7 +34,7 @@ const Controller = {
         if(!img_type.includes(mimetype)){
             return res.send("Img type must be : img, webp, jfif, png.")
         }
-        courses.push({id:uuid(), ...nwCourse,img_name: imgName,accapted: false })
+        courses.push({id:uuid(), ...nwCourse,img_name: imgName,accepted: false })
         write_file('courses.json', courses)
         file.mv(`./img/${imgName}`)
 
@@ -42,11 +42,40 @@ const Controller = {
 
     GET_COURSES_FOR_ADMIN: (req,res) => {
         let admin = read_file('admin.json')
-        console.log(jwt.verify(req.headers.authorization,process.env.SECRET_KEY));
+
 
         if(jwt.verify(req.headers.authorization,process.env.SECRET_KEY).name == admin[0].userName){
             let allCourses = read_file('courses.json')
             return res.send(allCourses)
+        }else{
+            return res.send('token is not actual!!!')
+        }
+    },
+
+    ADMIN_CHECKING_COURSE: (req,res) => {
+        let admin = read_file('admin.json')
+        let courses = read_file('courses.json')
+        let id = req.params.id
+        let accepted_status = req.body.accepted
+   
+        let id_exists = false
+        if(accepted_status != false && accepted_status !=true){
+            return res.send('Accepted status is not correct, must be true or false!!!')
+        }
+        
+        if(jwt.verify(req.headers.authorization,process.env.SECRET_KEY).name == admin[0].userName){
+            courses.forEach(course => {
+                if(course.id == id){
+                    course.accepted = accepted_status
+                    id_exists = true
+                }
+            })
+            if(!id_exists){
+                return res.send(`Course ID: "${id}" is not exists!!!`)
+            }{
+                write_file('courses.json', courses)
+                return res.send(`Course ID: "${id}" is accepted!!!`)
+            }
         }else{
             return res.send('token is not actual!!!')
         }
