@@ -1,0 +1,30 @@
+[
+    {
+        "id": "d0933904-4420-459c-8db5-ffbf5b237408",
+        "courseName": "NodeJs",
+        "subject": "Bootcamp",
+        "date": "02_01_2023",
+        "type": "online",
+        "link": "*",
+        "author": {
+            "name": "Kamoliddin",
+            "phone": 998931725501
+        },
+        "img_name": "14850020nodeJs.webp",
+        "accapted": false
+    },
+    {
+        "id": "75a722a7-1059-4897-b52c-ce87cbdc0148",
+        "courseName": "Flatter",
+        "subject": "Foundation",
+        "date": "25_02_2023",
+        "type": "online",
+        "link": "*",
+        "author": {
+            "name": "Jasur",
+            "phone": 998931723301
+        },
+        "img_name": "14956092flutter.png",
+        "accapted": true
+    }
+]

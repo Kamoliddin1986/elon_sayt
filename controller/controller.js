@@ -2,9 +2,10 @@ let {read_file, write_file, get_token} = require('../api/api')
 let uuid = require("uuid.v4")
 
 const Controller = {
-    GET: (_,res) => {
+    GET_COURSES_FOR_USERS: (_,res) => {
         let courses = read_file('courses.json')
-        res.send(courses)
+        let accepted_courses = courses.filter(courses => courses.accapted == true)
+        res.send(accepted_courses)
     },
     POST: (req,res) => {
         token = get_token(req.body).token

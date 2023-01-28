@@ -1,7 +1,7 @@
-import fs from 'fs'
-import jwt from 'jsonwebtoken'
-import express from 'express'
-import dotenv from 'dotenv'
+let fs = require('fs')
+let jwt = require('jsonwebtoken')
+// import express from 'express'
+let dotenv = require('dotenv')
 
 dotenv.config()
 
@@ -18,20 +18,25 @@ const write_file = (file_name, data) => {
 
 } 
 
-function get_token(login,pass){
-    let user = read_file('user.json')
-    if(user.userName == login && user.password == pass){
-        let token = jwt.sign({name: `${login}`},process.env.SECRET_KEY, {
+function get_token(logData){
+    let user = read_file('admin.json')
+    if(user.userName == logData.userName && user.password == logData.password){
+        let token = jwt.sign({name: `${user.userName}`},process.env.SECRET_KEY, {
             expiresIn: "2h",
         })
-        resizeBy.sen
+        return {token}
+    }else{
+        return {
+            token: false
+        }
     }
 
 }
 
 
 
-export {
+module.exports = {
     read_file,
-    write_file
+    write_file,
+    get_token
 }
