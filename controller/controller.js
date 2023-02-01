@@ -1,6 +1,7 @@
 let {read_file, write_file, get_token} = require('../api/api')
 let uuid = require("uuid.v4")
 let jwt = require('jsonwebtoken')
+// const qwps = require('query-parser')
 
 const Controller = {
     GET_COURSES_FOR_USERS: (_,res) => {
@@ -21,10 +22,13 @@ const Controller = {
     },
     CREATE_COURSE: (req,res) => {
         let courses = read_file('courses.json')
+
         let nwCourse = req.body.course_data
         nwCourse = JSON.parse(nwCourse)
         let {file} = req.files
+        console.log(req.files);
         let {size, mimetype} = file
+        
         let img_type = ['image/webp', 'image/jpg','image/png','application/octet-stream' ]
         let imgName = (Date.now()-1674906463165)+file.name
         console.log(file, nwCourse, "TRUE:",mimetype);
@@ -37,6 +41,7 @@ const Controller = {
         courses.push({id:uuid(), ...nwCourse,img_name: imgName,accepted: false })
         write_file('courses.json', courses)
         file.mv(`./img/${imgName}`)
+        res.send('Course was added!!!')
 
     },
 
@@ -79,6 +84,27 @@ const Controller = {
         }else{
             return res.send('token is not actual!!!')
         }
+    },
+    GET_COURSES_BY_FILTERS: (req,res) => {
+        let values = req.query
+        let filters = Object.keys(req.query)
+
+
+        let courses =  read_file('courses.json')
+        for (let key of filters){
+
+            if(key == 'name'){
+                courses = courses.filter(course => course.author[key]==values[key] && course.accepted == true )
+            }else{
+                courses = courses.filter(course => course[key]==values[key] && course.accepted == true)
+
+            }
+        }
+              
+        return res.send(courses)
+
+
+        
     }
 }
 

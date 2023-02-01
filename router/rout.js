@@ -8,6 +8,7 @@ router
       .post('/create_course', Controller.CREATE_COURSE)
       .post('/admin/courses', Controller.GET_COURSES_FOR_ADMIN)
       .post('/admin/checking_course/:id', Controller.ADMIN_CHECKING_COURSE)
+      .get('/filter/', Controller.GET_COURSES_BY_FILTERS)
 
 
 

@@ -7,11 +7,11 @@
         "type": "online",
         "link": "*",
         "author": {
-            "name": "Kamoliddin",
+            "name": "kamoliddin",
             "phone": 998931725501
         },
         "img_name": "14850020nodeJs.webp",
-        "accepted": false
+        "accepted": true
     },
     {
         "id": "75a722a7-1059-4897-b52c-ce87cbdc0148",
@@ -25,6 +25,104 @@
             "phone": 998931723301
         },
         "img_name": "14956092flutter.png",
+        "accepted": true
+    },
+    {
+        "id": "5d2e92f3-93d6-4085-a632-55504bd07ce6",
+        "courseName": "NodeJs",
+        "subject": "foundation",
+        "date": "01_01_2023",
+        "type": "offline",
+        "link": "*",
+        "author": {
+            "name": "kimdur",
+            "phone": 998931725501
+        },
+        "img_name": "178063210nodejs.png",
+        "accepted": false
+    },
+    {
+        "id": "03588c8e-851a-4e87-8138-0f9d9704ccd7",
+        "courseName": "Google",
+        "subject": "foundation",
+        "date": "02_01_2023",
+        "type": "offline",
+        "link": "*",
+        "author": {
+            "name": "kimdur2",
+            "phone": 998931725501
+        },
+        "img_name": "264330121google.webp",
+        "accepted": false
+    },
+    {
+        "id": "379c8749-1b3b-4533-af6b-a02ba52b0205",
+        "courseName": "Google",
+        "subject": "foundation",
+        "date": "02_01_2023",
+        "type": "offline",
+        "link": "*",
+        "author": {
+            "name": "kamoliddin",
+            "phone": 998931725501
+        },
+        "img_name": "346799771google.webp",
+        "accepted": true
+    },
+    {
+        "id": "379c8749-1b3b-4533-af6b-a02ba52b0215",
+        "courseName": "NodeJs",
+        "subject": "Web design",
+        "date": "02_01_2023",
+        "type": "offline",
+        "link": "*",
+        "author": {
+            "name": "kamoliddin",
+            "phone": 998931725501
+        },
+        "img_name": "346799771google.webp",
+        "accepted": false
+    },
+    {
+        "id": "c7f7b19e-1b96-49b6-b290-773c2b9e121f",
+        "courseName": "Excell",
+        "subject": "foundation",
+        "date": "02_01_2023",
+        "type": "offline",
+        "link": "*",
+        "author": {
+            "name": "kimdur",
+            "phone": 998931725501
+        },
+        "img_name": "347681657google.webp",
+        "accepted": false
+    },
+    {
+        "id": "bf670b34-810f-4ffc-8e12-9d475379bb7e",
+        "courseName": "Word",
+        "subject": "foundation",
+        "date": "02_01_2023",
+        "type": "offline",
+        "link": "*",
+        "author": {
+            "name": "kamoliddin",
+            "phone": 998931725501
+        },
+        "img_name": "347782386google.webp",
+        "accepted": false
+    },
+    {
+        "id": "0c43e656-d15f-44d9-8b5a-2674399e7bf4",
+        "courseName": "PowerPoint",
+        "subject": "foundation",
+        "date": "02_01_2023",
+        "type": "offline",
+        "link": "*",
+        "author": {
+            "name": "kamoliddin",
+            "phone": 998931725501
+        },
+        "img_name": "347942906found.webp",
         "accepted": true
     }
 ]
